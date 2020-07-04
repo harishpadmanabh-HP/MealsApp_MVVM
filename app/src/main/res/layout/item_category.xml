@@ -42,15 +42,22 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
+            <com.skydoves.transformationlayout.TransformationLayout
+                android:id="@+id/transformationLayout"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:transformation_duration="550"
+                app:transformation_pathMode="arc">
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/item_poster_post"
                 app:loadImageWithVeil="@{poster.strCategoryThumb}"
                 app:withVeil="@{veil}"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="match_parent"
                 />
-
+            </com.skydoves.transformationlayout.TransformationLayout>
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/item_poster_title"
 
