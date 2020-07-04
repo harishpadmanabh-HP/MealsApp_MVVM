@@ -6,7 +6,7 @@
 
         <variable
             name="vm"
-            type="com.hp.mealsapp_mvvm.ui.MainActivityViewModel" />
+            type="com.hp.mealsapp_mvvm.ui.categorySelection.MainActivityViewModel" />
 
         <variable
             name="adapter"
@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/background"
-        tools:context=".ui.MainActivity">
+        tools:context=".ui.categorySelection.MainActivity">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/logo"
@@ -70,6 +70,6 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/greeting"
-            tools:listitem="@layout/item_poster" />
+            tools:listitem="@layout/item_category" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

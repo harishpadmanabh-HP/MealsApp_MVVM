@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="poster"
+            type="com.hp.mealsapp_mvvm.data.models.Categories.Category" />
+
+        <variable
+            name="veil"
+            type="com.skydoves.androidveil.VeilLayout" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="219dp"
+        android:layout_height="406dp"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardBackgroundColor="@color/md_amber_700"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="32dp"
+        android:layout_margin="15dp"
+
+        android:backgroundTint="@color/yellow"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="37dp">
+        <com.skydoves.androidveil.VeilLayout
+            android:id="@+id/item_veilLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:veilLayout_baseAlpha="0.9"
+            app:veilLayout_baseColor="@color/colorVeil"
+            app:veilLayout_dropOff="0.5"
+            app:veilLayout_highlightAlpha="1.0"
+            app:veilLayout_radius="12dp"
+            app:veilLayout_shimmerEnable="true"
+            app:veilLayout_veiled="true">
+        <LinearLayout
+            android:background="@color/white_56"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/item_poster_post"
+                app:loadImageWithVeil="@{poster.strCategoryThumb}"
+                app:withVeil="@{veil}"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/item_poster_title"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@{poster.strCategory}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                android:textColor="@color/background900"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                app:autoSizeMaxTextSize="26sp"
+                app:autoSizeMinTextSize="16sp"
+                app:autoSizeTextType="uniform" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/item_poster_desc"
+                android:scrollbars="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:text="@{poster.strCategoryDescription}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                android:textColor="@color/background800"
+                android:textSize="20sp"
+                android:textStyle="normal"
+                app:autoSizeMaxTextSize="26sp"
+                app:autoSizeMinTextSize="16sp"
+                app:autoSizeTextType="uniform" />
+
+        </LinearLayout>
+        </com.skydoves.androidveil.VeilLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

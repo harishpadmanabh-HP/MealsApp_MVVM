@@ -1,11 +1,6 @@
-package com.hp.mealsapp_mvvm.ui
+package com.hp.mealsapp_mvvm.ui.categorySelection
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.hp.mealsapp_mvvm.R
 import com.hp.mealsapp_mvvm.base.DatabindingActivity
@@ -22,7 +17,8 @@ class MainActivity : DatabindingActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         onTransformationStartContainer()
         super.onCreate(savedInstanceState)
-        viewModel=ViewModelProviders.of(this@MainActivity).get(MainActivityViewModel::class.java)
+
+        viewModel=ViewModelProviders.of(this).get(MainActivityViewModel::class.java)
         binding.apply {
             lifecycleOwner = this@MainActivity
             vm=viewModel.apply { fetchCategory() }

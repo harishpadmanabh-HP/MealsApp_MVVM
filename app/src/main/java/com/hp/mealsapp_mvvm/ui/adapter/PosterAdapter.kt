@@ -1,5 +1,6 @@
 package com.hp.mealsapp_mvvm.ui.adapter
 
+import android.text.method.ScrollingMovementMethod
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
@@ -7,7 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.hp.mealsapp_mvvm.R
 import com.hp.mealsapp_mvvm.data.models.Categories
-import com.hp.mealsapp_mvvm.databinding.ItemPosterBinding
+import com.hp.mealsapp_mvvm.databinding.ItemCategoryBinding
 import java.util.*
 
 class PosterAdapter : RecyclerView.Adapter<PosterAdapter.PosterViewHolder>() {
@@ -17,8 +18,8 @@ class PosterAdapter : RecyclerView.Adapter<PosterAdapter.PosterViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PosterViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = DataBindingUtil.inflate<ItemPosterBinding>(
-            inflater, R.layout.item_poster, parent, false
+        val binding = DataBindingUtil.inflate<ItemCategoryBinding>(
+            inflater, R.layout.item_category, parent, false
         )
         return PosterViewHolder(binding)
     }
@@ -39,10 +40,11 @@ class PosterAdapter : RecyclerView.Adapter<PosterAdapter.PosterViewHolder>() {
         val item = items[position]
         holder.binding.apply {
             poster = item
+            itemPosterDesc.movementMethod=(ScrollingMovementMethod())
             veil = itemVeilLayout
             executePendingBindings()
             root.setOnClickListener {
-                Toast.makeText(it.context, "Clicked ${item.strCategory}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(it.context, "You chose ${item.strCategory}", Toast.LENGTH_SHORT).show()
                 // PosterDetailActivity.startActivity(it.context, transformationLayout, item)
             }
         }
@@ -51,6 +53,6 @@ class PosterAdapter : RecyclerView.Adapter<PosterAdapter.PosterViewHolder>() {
 
 
 
-    class PosterViewHolder(val binding: ItemPosterBinding) :
+    class PosterViewHolder(val binding: ItemCategoryBinding) :
         RecyclerView.ViewHolder(binding.root)
 }
