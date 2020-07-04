@@ -46,7 +46,7 @@
                     android:id="@+id/meal_image"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="fitXY"
+                    android:scaleType="centerCrop"
                     app:loadImageWithVeil="@{meal.strMealThumb}"
                     app:withVeil="@{veil}"
                     app:layout_constraintBottom_toBottomOf="parent"

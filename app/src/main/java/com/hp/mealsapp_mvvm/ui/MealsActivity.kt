@@ -28,8 +28,9 @@ class MealsActivity : DatabindingActivity() {
         super.onCreate(savedInstanceState)
 
         viewModel=ViewModelProviders.of(this).get(MealsActivityViewModel::class.java)
+
         binding.viewmodel=viewModel.apply {
-            fetchCategory()
+fetchmeals(intent.getStringExtra(categorySelected))
         }
         binding.mealsList.layoutManager =  StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         binding.adapter=MealsAdapter()
@@ -37,7 +38,7 @@ class MealsActivity : DatabindingActivity() {
 
 
         val selectedCategory = intent.getStringExtra(categorySelected)
-       viewModel.posterLiveData.observe(this, Observer {
+       viewModel.mealsLiveData.observe(this, Observer {
 
            for(meal in it){
                Log.e("$selectedCategory",meal.strMeal)
