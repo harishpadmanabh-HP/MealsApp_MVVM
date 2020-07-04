@@ -8,6 +8,7 @@ import android.util.Log
 import android.util.Log.e
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.hp.mealsapp_mvvm.R
 import com.hp.mealsapp_mvvm.base.DatabindingActivity
 import com.hp.mealsapp_mvvm.data.models.Categories
@@ -27,12 +28,23 @@ class MealsActivity : DatabindingActivity() {
         super.onCreate(savedInstanceState)
 
         viewModel=ViewModelProviders.of(this).get(MealsActivityViewModel::class.java)
+        binding.viewmodel=viewModel.apply {
+            fetchCategory()
+        }
+        binding.mealsList.layoutManager =  StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        binding.adapter=MealsAdapter()
+        binding.lifecycleOwner=this
+
+
         val selectedCategory = intent.getStringExtra(categorySelected)
        viewModel.posterLiveData.observe(this, Observer {
+
            for(meal in it){
                Log.e("$selectedCategory",meal.strMeal)
            }
        })
+
+
 
 
     }

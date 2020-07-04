@@ -11,7 +11,7 @@ class MealsActivityViewModel : ViewModel() {
 
     // var mealsLiveData = MutableLiveData<List<Meals.Meal>>()
 
-    val posterLiveData: LiveData<List<Meals.Meal>>
+    val posterLiveData : LiveData<List<Meals.Meal>>
             = MealsRepo().loadFilteredMeals("beef")
 
     fun fetchCategory() = posterLiveData

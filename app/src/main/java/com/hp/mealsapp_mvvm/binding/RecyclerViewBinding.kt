@@ -72,7 +72,7 @@ fun bindOnItemChanged(view: DiscreteScrollView, adapter: PosterAdapter, pointVie
 @BindingAdapter("adapterMealList")
 fun bindMealsList(
     view: RecyclerView,
-    meals: List<Meals.Meal>
+    meals: List<Meals.Meal>?
 ) {
     meals.whatIfNotNullOrEmpty {
         (view.adapter as? MealsAdapter)?.updateMealsList(it)

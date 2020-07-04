@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hp.mealsapp_mvvm.R
 import com.hp.mealsapp_mvvm.data.models.Meals
 import com.hp.mealsapp_mvvm.databinding.ItemMealsBinding
+import timber.log.Timber
 
 class MealsAdapter : RecyclerView.Adapter<MealsAdapter.MealsViewHolder>() {
 
@@ -36,6 +37,8 @@ class MealsAdapter : RecyclerView.Adapter<MealsAdapter.MealsViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MealsViewHolder, position: Int) {
+        Timber.e("Binded")
+
         val item = mealitems[position]
         holder.binding.apply {
             meal = item

@@ -10,6 +10,7 @@ import com.hp.mealsapp_mvvm.R
 import com.hp.mealsapp_mvvm.data.models.Categories
 import com.hp.mealsapp_mvvm.databinding.ItemCategoryBinding
 import com.hp.mealsapp_mvvm.ui.MealsActivity
+import timber.log.Timber
 
 class PosterAdapter : RecyclerView.Adapter<PosterAdapter.PosterViewHolder>() {
 
@@ -37,6 +38,7 @@ class PosterAdapter : RecyclerView.Adapter<PosterAdapter.PosterViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: PosterViewHolder, position: Int) {
+        Timber.e("Binded")
         val item = items[position]
         holder.binding.apply {
             poster = item

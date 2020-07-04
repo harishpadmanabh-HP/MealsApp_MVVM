@@ -21,7 +21,9 @@ class MainActivity : DatabindingActivity() {
         viewModel=ViewModelProviders.of(this).get(MainActivityViewModel::class.java)
         binding.apply {
             lifecycleOwner = this@MainActivity
-            vm=viewModel.apply { fetchCategory() }
+            vm=viewModel.apply {
+                fetchCategory()
+            }
             adapter = PosterAdapter()
 
 
