@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hp.mealsapp_mvvm.R
 import com.hp.mealsapp_mvvm.data.models.Categories
 import com.hp.mealsapp_mvvm.databinding.ItemCategoryBinding
-import java.util.*
+import com.hp.mealsapp_mvvm.ui.MealsActivity
 
 class PosterAdapter : RecyclerView.Adapter<PosterAdapter.PosterViewHolder>() {
 
@@ -45,7 +45,7 @@ class PosterAdapter : RecyclerView.Adapter<PosterAdapter.PosterViewHolder>() {
             executePendingBindings()
             root.setOnClickListener {
                 Toast.makeText(it.context, "You chose ${item.strCategory}", Toast.LENGTH_SHORT).show()
-                // PosterDetailActivity.startActivity(it.context, transformationLayout, item)
+                 MealsActivity.startActivity(it.context, transformationLayout, item)
             }
         }
     }

@@ -46,9 +46,7 @@
                 android:id="@+id/transformationLayout"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:transformation_duration="550"
+                app:transformation_duration="500"
                 app:transformation_pathMode="arc">
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/item_poster_post"
