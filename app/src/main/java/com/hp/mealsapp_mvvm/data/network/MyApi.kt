@@ -1,6 +1,7 @@
 package com.hp.mealsapp_mvvm.data.network
 
 import com.hp.mealsapp_mvvm.data.models.Categories
+import com.hp.mealsapp_mvvm.data.models.MealDetails
 import com.hp.mealsapp_mvvm.data.models.Meals
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -20,9 +21,12 @@ interface MyApi {
     @GET("filter.php")
     fun getFilteredMeals(@Query("c") c:String) : Call<Meals>
 
+    @GET("lookup.php")
+    fun getMealbyID(@Query("i") i:String) : Call<MealDetails>
+
     companion object{
         operator fun invoke():MyApi{
-            var logger  = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+            var logger  = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC)
             val client: OkHttpClient =
                 OkHttpClient.Builder().addInterceptor(logger).build()
 

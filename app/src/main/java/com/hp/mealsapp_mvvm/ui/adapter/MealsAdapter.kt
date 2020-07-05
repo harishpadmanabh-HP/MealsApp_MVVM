@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.hp.mealsapp_mvvm.R
 import com.hp.mealsapp_mvvm.data.models.Meals
 import com.hp.mealsapp_mvvm.databinding.ItemMealsBinding
+import com.hp.mealsapp_mvvm.ui.mealDetails.MealDetailsActivity
 import timber.log.Timber
 
 class MealsAdapter : RecyclerView.Adapter<MealsAdapter.MealsViewHolder>() {
@@ -47,6 +48,8 @@ class MealsAdapter : RecyclerView.Adapter<MealsAdapter.MealsViewHolder>() {
             root.setOnClickListener {
                 Toast.makeText(it.context, "You chose ${item.strMeal}", Toast.LENGTH_SHORT).show()
                // MealsActivity.startActivity(it.context, transformationLayout, item)
+
+                MealDetailsActivity.startActivity(it.context,mealitems[position].idMeal)
             }
         }    }
 }

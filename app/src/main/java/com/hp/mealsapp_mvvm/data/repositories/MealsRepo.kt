@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.liveData
 import com.hp.mealsapp_mvvm.data.models.Categories
+import com.hp.mealsapp_mvvm.data.models.MealDetails
 import com.hp.mealsapp_mvvm.data.models.Meals
 import com.hp.mealsapp_mvvm.data.network.MyApi
 import retrofit2.Call
@@ -52,6 +53,24 @@ class MealsRepo {
         })
         return mealsData
 
+    }
+
+    fun loadMealDetails(id:String) : MutableLiveData<MealDetails>{
+        val mealDetailsData = MutableLiveData<MealDetails>()
+        MyApi().getMealbyID(id).enqueue(object : Callback<MealDetails>{
+            override fun onFailure(call: Call<MealDetails>, t: Throwable) {
+                Log.e("ON Failed ", t.toString())
+            }
+
+            override fun onResponse(call: Call<MealDetails>, response: Response<MealDetails>) {
+
+                Timber.e("timber Meals Detisl ${response.body()?.meals?.size}")
+                mealDetailsData.postValue(response.body())
+
+            }
+
+        })
+        return mealDetailsData
     }
 
 }

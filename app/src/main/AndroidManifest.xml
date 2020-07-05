@@ -13,9 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.MealsActivity">
-
-        </activity>
+        <activity android:name=".ui.mealDetails.MealDetailsActivity"></activity>
+        <activity android:name=".ui.MealsActivity"></activity>
         <activity android:name=".ui.categorySelection.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

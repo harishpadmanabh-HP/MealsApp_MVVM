@@ -36,6 +36,10 @@ fetchmeals(intent.getStringExtra(categorySelected))
         binding.adapter=MealsAdapter()
         binding.lifecycleOwner=this
 
+        viewModel.heading.observe(this, Observer {
+            binding.mealsHeading.text = it
+        })
+
 
         val selectedCategory = intent.getStringExtra(categorySelected)
        viewModel.mealsLiveData.observe(this, Observer {
