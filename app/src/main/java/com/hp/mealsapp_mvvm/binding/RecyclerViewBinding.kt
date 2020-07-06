@@ -61,7 +61,7 @@ fun bindAdapterPosterList(view: DiscreteScrollView, posters: List<Categories.Cat
 fun bindOnItemChanged(view: DiscreteScrollView, adapter: PosterAdapter, pointView: View) {
     view.addOnItemChangedListener { viewHolder, _ ->
         viewHolder?.adapterPosition.whatIfNotNull {
-            var colors = arrayOf(Color.RED, Color.BLUE, Color.DKGRAY, Color.MAGENTA)
+            var colors = arrayOf(Color.RED, Color.BLACK, Color.YELLOW, Color.DKGRAY)
             var randomColorindex = (0..3).random()
 
             pointView.circularRevealedAtCenter(colors[randomColorindex])
