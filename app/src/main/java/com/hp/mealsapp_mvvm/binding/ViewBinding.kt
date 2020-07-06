@@ -17,6 +17,7 @@
 package com.skydoves.marvelheroes.binding
 
 import android.graphics.drawable.Drawable
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
@@ -27,6 +28,8 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.skydoves.androidveil.VeilLayout
+import java.lang.Exception
+import java.io.IOException as IOException1
 
 @BindingAdapter("loadImage")
 fun bindLoadImage(view: AppCompatImageView, url: String) {
@@ -37,31 +40,36 @@ fun bindLoadImage(view: AppCompatImageView, url: String) {
 
 @BindingAdapter("withVeil", "loadImageWithVeil")
 fun bindLoadImageWithVeil(view: AppCompatImageView, veilLayout: VeilLayout, url: String) {
-  Glide.with(view.context)
-    .load(url)
-    .listener(object : RequestListener<Drawable> {
-      override fun onLoadFailed(
-        e: GlideException?,
-        model: Any?,
-        target: Target<Drawable>?,
-        isFirstResource: Boolean
-      ): Boolean {
-        veilLayout.unVeil()
-        return false
-      }
+  Log.e("bindLoadImageWithVeil",url)
+  if(url.equals("")){
+    Log.e("URL","EMPTY URL")
+  }else {
+    Glide.with(view.context)
+      .load(url)
+      .listener(object : RequestListener<Drawable> {
+        override fun onLoadFailed(
+          e: GlideException?,
+          model: Any?,
+          target: Target<Drawable>?,
+          isFirstResource: Boolean
+        ): Boolean {
+          veilLayout.unVeil()
+          return false
+        }
 
-      override fun onResourceReady(
-        resource: Drawable?,
-        model: Any?,
-        target: Target<Drawable>?,
-        dataSource: DataSource?,
-        isFirstResource: Boolean
-      ): Boolean {
-        veilLayout.unVeil()
-        return false
-      }
-    })
-    .into(view)
+        override fun onResourceReady(
+          resource: Drawable?,
+          model: Any?,
+          target: Target<Drawable>?,
+          dataSource: DataSource?,
+          isFirstResource: Boolean
+        ): Boolean {
+          veilLayout.unVeil()
+          return false
+        }
+      })
+      .into(view)
+  }
 }
 
 @BindingAdapter("onBackPressed")

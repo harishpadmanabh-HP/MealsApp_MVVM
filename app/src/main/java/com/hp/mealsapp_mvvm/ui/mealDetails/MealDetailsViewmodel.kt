@@ -12,9 +12,15 @@ import com.hp.mealsapp_mvvm.data.repositories.MealsRepo
 
 class MealDetailsViewmodel: ViewModel() {
 
-    val posterLiveData: MutableLiveData<MealDetails>
-            = MealsRepo().loadMealDetails("52772")
+    var posterLiveData=  MutableLiveData<MealDetails>()
+            //= MealsRepo().loadMealDetails("52772")
     fun fetchData()=posterLiveData
+
+    fun fetchData(id:String):MutableLiveData<MealDetails>{
+        posterLiveData = MealsRepo().loadMealDetails(id)
+        fetchData()
+        return posterLiveData
+    }
 
 
 

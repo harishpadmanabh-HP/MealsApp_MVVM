@@ -26,7 +26,7 @@ class MealDetailsActivity : DatabindingActivity() {
 
         viewmodel=ViewModelProvider(this).get(MealDetailsViewmodel::class.java)
         binding.lifecycleOwner=this
-        //binding.veil=veilLayout
+        viewmodel.fetchData(idmeal)
         viewmodel.posterLiveData.observe(this, Observer {
             for(meal in it.meals)
             {
@@ -42,6 +42,8 @@ class MealDetailsActivity : DatabindingActivity() {
                 .load(url.trim())
                 .placeholder(R.drawable.marvel)
                 .into(binding.mealImageView)
+
+
 
 
 

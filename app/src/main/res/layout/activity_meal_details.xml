@@ -27,33 +27,23 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_begin="259dp" />
 
-<!--        <com.skydoves.androidveil.VeilLayout-->
-<!--            android:id="@+id/veilLayout"-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="0dp"-->
-<!--            app:layout_constraintBottom_toTopOf="@+id/guideline"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:veilLayout_baseAlpha="0.9"-->
-<!--            app:veilLayout_baseColor="@color/colorVeil"-->
-<!--            app:veilLayout_dropOff="0.5"-->
-<!--            app:veilLayout_highlightAlpha="1.0"-->
-<!--            app:veilLayout_radius="12dp"-->
-<!--            app:veilLayout_shimmerEnable="true"-->
-<!--            app:veilLayout_veiled="true">-->
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/meal_imageView"
+                android:scaleType="centerCrop"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:layout_constraintBottom_toTopOf="@+id/guideline"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                 />
-
-<!--        </com.skydoves.androidveil.VeilLayout>-->
+                android:background="@color/colorPrimaryDark"
+                android:elevation="50dp" />
+        </LinearLayout>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline3"
