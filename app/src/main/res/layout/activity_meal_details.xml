@@ -20,6 +20,20 @@
         android:layout_height="match_parent"
         tools:context=".ui.mealDetails.MealDetailsActivity">
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/play_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/background800"
+            android:clickable="true"
+            android:elevation="50dp"
+            app:fabSize="auto"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_play_circle_outline"
+            tools:visibility="visible" />
+
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
             android:layout_width="wrap_content"
@@ -83,6 +97,29 @@
                         android:textColor="@color/background800"
                         android:textSize="25sp"
                         android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:padding="10dp"
+                        android:id="@+id/play_video_layout"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:src="@drawable/youtube"
+                            />
+                        <TextView
+                            android:id="@+id/about_textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Watch videos about "
+                            android:textStyle="normal"
+                            android:textSize="20dp"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="15dp"
+                            ></TextView>
+                    </LinearLayout>
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/meal_desc_textView"
